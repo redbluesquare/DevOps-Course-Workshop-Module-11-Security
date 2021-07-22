@@ -17,7 +17,7 @@ You don't need to worry too much about what the code is doing for now, however y
 
 1. Run `dotnet build` from the terminal in the WeatherForecast folder.
 2. Run `dotnet run` from the terminal in the WeatherForecast folder.
-3. Go to https://localhost:5001/swagger/index.html in the browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page. Swagger UI is a useful tool to test API endpoints. To test this API click the "/WeatherForecast" row then "Try it out" then "Execute". You should then be able to see the response from the endpoint.
+3. Go to <https://localhost:5001/swagger/index.html> in the browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page. Swagger UI is a useful tool to test API endpoints. To test this API click the "/WeatherForecast" row then "Try it out" then "Execute". You should then be able to see the response from the endpoint.
 
 ![Swagger UI](WeatherForecast/img/SwaggerUI.PNG)
 
@@ -28,6 +28,7 @@ The first step is to create an Azure AD Tenant. A tenant in this case is an inst
 Follow [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) to create a new Azure AD Tenant to use.
 
 *Note* - Make sure you have switched to the new tenant afterwards. You can do that by:
+
 * Clicking your name in the top right corner
 * 'Switch directory'
 * Selecting your new tenant's directory
@@ -66,7 +67,6 @@ This should be provided in the `appsettings.json` file. Update this file to incl
 ```
 
 You can find the client id and tenant id on the overview page for your app registration in the Azure portal. See [this guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-configuration#config-file) for more details.
-
 
 **Configure the app to use authentication.**
 These changes need to be made in `Startup.cs`. You need to update the `ConfigureService` method to include the following:
@@ -144,15 +144,17 @@ You'll see in the next part how we can add a valid authentication token to the r
 You are now going to register a second application - a consumer of the protected API - that will access it by generating an access token. You will play the part of the second application by making HTTP requests yourself. To register it, create a second "app registration" in the Azure portal:
 
 Create a new app registration called `WeatherAppConsumer` (feel free to name it something else if you prefer!).
+
 * Once created, add a new **client secret** from the **Certificates & secrets**. Make a note of the secret's value - you will not be able to access this through the portal later.
 
 Next you'll need to grant API permission for the new application to access the first app registration you created.
-* Select **API permissions** => **Add a permission** => **My APIs** then click on your app and the role you created earlier (`WeatherApplicationRole`) 
+
+* Select **API permissions** => **Add a permission** => **My APIs** then click on your app and the role you created earlier (`WeatherApplicationRole`)
 * **Make sure you grant admin consent for the tenant on the API permissions page**. As you created the tenant you should have admin permissions to do so.
 
 ### 2.2: Get a token to access the web API
 
-You should now be able to request a token to access the API. See [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret) for what the request should look like. 
+You should now be able to request a token to access the API. See [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret) for what the request should look like.
 
 The structure of the request in Postman will look like the following:
 
@@ -160,12 +162,12 @@ The structure of the request in Postman will look like the following:
 
 In particular:
 
-- The tenant id should be from the tenant you created in part 1. You can find this on the overview page for either of the app registrations you've created.
-- The client id should be the client id for the app registration you created in step 2.1.
-- The client secret should be the one you created in step 2.1, to prove that it is the application making this request.
-- The scope should be the application ID URI from the first app registration you created in step 1.3 followed by "/.default". For example `api://40ae91b7-0c83-4b5c-90f3-40187e8f2cb6/.default`.
-    - You can find the application ID URI by going to the "Expose an API" section for your first app registration in the Azure portal.
-    - Note that if you are *NOT* using Postman, it needs to be URI encoded. For example `api%3A%2F%2F40ae91b7-0c83-4b5c-90f3-40187e8f2cb6%2F.default` 
+* The tenant id should be from the tenant you created in part 1. You can find this on the overview page for either of the app registrations you've created.
+* The client id should be the client id for the app registration you created in step 2.1.
+* The client secret should be the one you created in step 2.1, to prove that it is the application making this request.
+* The scope should be the application ID URI from the first app registration you created in step 1.3 followed by "/.default". For example `api://40ae91b7-0c83-4b5c-90f3-40187e8f2cb6/.default`.
+  * You can find the application ID URI by going to the "Expose an API" section for your first app registration in the Azure portal.
+  * Note that if you are *NOT* using Postman, it needs to be URI encoded. For example `api%3A%2F%2F40ae91b7-0c83-4b5c-90f3-40187e8f2cb6%2F.default`
 
 Once you get a successful response copy the access token from it. You're going to use this in the request to your web API.
 
@@ -177,7 +179,7 @@ Now you just need to add the token from the previous step to your request to the
 
 With the web API running and the Swagger UI page open you should see an "Authorize" button. The button should currently have an unlocked padlock icon on it, which means that no authorization token has been added. Once you click the button a popup should appear where you can enter the token. Make sure to include "Bearer" but don't include quotes. So for example:
 
-```
+```text
 Bearer eyJ0eXAiOiJKV1QiLCJ...
 ```
 
@@ -224,7 +226,7 @@ Once you've created the app registration and set the redirect, you need to give 
 
 ### 3.2: Create a web app
 
-Now create a simple web app. It should only expose one url, e.g. http://localhost:3000. For now you can display whatever you want on that page, for example "Hello, world".
+Now create a simple web app. It should only expose one url, e.g. <http://localhost:3000>. For now you can display whatever you want on that page, for example "Hello, world".
 
 ### 3.3: Generate a verifier and code challenge
 
@@ -241,6 +243,7 @@ A good way to do this in Python is:
 1. Generate a string from a random 32 bytes, e.g. by using `secrets.token_urlsafe(32)` with the `secrets` module
 2. To generate the challenge, we first hash those bytes using the `hashlib.sha256` function - note that you will need to encode the verifier string first
 3. And then base64 encode the hash, decode it and remove any padding (any `=`)
+
 ```python
 challenge_bytes = base64.urlsafe_b64encode(sha.digest())
 challenge_string = challenge_bytes.decode('utf-8').replace('=', '')
@@ -250,7 +253,7 @@ Or alternatively for javascript/typescript:
 
 1. Create a helper method which will convert bytes to a base 64 string, remove base 64 padding and url encode it. For example in javascript using `crypto-js` this would be:
 
-```
+```typescript
 function base64UrlEncode(bytes: crypto.lib.WordArray): string {
     return bytes.toString(crypto.enc.Base64)
         .replace(/\+/g, '-')
@@ -274,18 +277,18 @@ You're now ready to add login to your webpage. This should work by using some qu
 
 You can redirect to login by sending a GET request to the url described in the "Request an authorization code" section of [this guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code). Out of these parameters:
 
-- `tenant` is the tenant id you've already used. This can be found in the overview page for any of your app registrations in the Azure portal.
-- `client_id` is the client id for the app registration you created in step 3.1.
-- `response_type` should be `code`.
-- `redirect_uri` should be the url for your webpage, e.g. http://localhost:3000.
-- `scope` should be the same scope you used in the python script, except with `access_as_user` at the end instead of `.default`.
-- `response_mode` should be `query`, indicating that we're expecting query parameters to be set once login has completed.
-- `state` should be the `state` string you created.
-- `prompt` can be left out.
-- `login_hint` can be left out.
-- `domain_hint` can be left out.
-- `code_challenge` should be set to the code challenge you generated in step 3.3.
-- `code_challenge_method` should be set to `S256`.
+* `tenant` is the tenant id you've already used. This can be found in the overview page for any of your app registrations in the Azure portal.
+* `client_id` is the client id for the app registration you created in step 3.1.
+* `response_type` should be `code`.
+* `redirect_uri` should be the url for your webpage, e.g. <http://localhost:3000>.
+* `scope` should be the same scope you used in the python script, except with `access_as_user` at the end instead of `.default`.
+* `response_mode` should be `query`, indicating that we're expecting query parameters to be set once login has completed.
+* `state` should be the `state` string you created.
+* `prompt` can be left out.
+* `login_hint` can be left out.
+* `domain_hint` can be left out.
+* `code_challenge` should be set to the code challenge you generated in step 3.3.
+* `code_challenge_method` should be set to `S256`.
 
 ### 3.5: Request a token once login succeeds
 
@@ -295,10 +298,10 @@ See the "Request an access token" section of [this guide](https://docs.microsoft
 
 In particular:
 
-- The headers of the request need to have `Content-Type` set to `application/x-www-form-urlencoded` and `Origin` set to the url of your webpage (e.g. http://localhost:3000).
-- The body of the request needs to be a url encoded string, formatted like a list of query parameters. For example `client_id=CLIENT_ID&scope=ENCODED_API_SCOPE&code=CODE&redirect_uri=ENCODED_REDIRECT_URL&grant_type=authorization_code&code_verifier=VERIFIER`.
-- The client id, scope, redirect uri and verifier are the same as in the login url.
-- The code should be the value of the `code` query parameter, set when login succeeds.
+* The headers of the request need to have `Content-Type` set to `application/x-www-form-urlencoded` and `Origin` set to the url of your webpage (e.g. <http://localhost:3000>).
+* The body of the request needs to be a url encoded string, formatted like a list of query parameters. For example `client_id=CLIENT_ID&scope=ENCODED_API_SCOPE&code=CODE&redirect_uri=ENCODED_REDIRECT_URL&grant_type=authorization_code&code_verifier=VERIFIER`.
+* The client id, scope, redirect uri and verifier are the same as in the login url.
+* The code should be the value of the `code` query parameter, set when login succeeds.
 
 ### 3.6: Update the web API to allow access by user
 
@@ -306,7 +309,7 @@ Currently our web API is configured to only allow access with a token generated 
 
 In particular change the policy to:
 
-```
+```csharp
 config.AddPolicy(
     "UserPolicy",
     policy => policy.RequireClaim(ClaimConstants.Scp, "access_as_user")
@@ -315,7 +318,7 @@ config.AddPolicy(
 
 And update the policy name the `WeatherForecastController` uses:
 
-```
+```csharp
 [Authorize(Policy = "UserPolicy")]
 [ApiController]
 [Route("[controller]")]
