@@ -191,8 +191,10 @@ Create a GET request with an authorisation type of Bearer Token:
 
 ![Postman API Request](WeatherForecast/img/PostmanApiRequest.PNG)
 
+### Troubleshooting
+
 <details>
-  <summary>Troubleshooting</summary>
+  <summary>Expand</summary>
 
 If you have a token, but the WeatherForecast API returns an error, then double check you've copied the token without any quotes and that you're prefixing it with "Bearer " if using Swagger.
 
