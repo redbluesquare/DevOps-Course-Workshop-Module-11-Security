@@ -191,6 +191,30 @@ Create a GET request with an authorisation type of Bearer Token:
 
 ![Postman API Request](WeatherForecast/img/PostmanApiRequest.PNG)
 
+<details>
+  <summary>Troubleshooting</summary>
+
+If you have a token, but the WeatherForecast API returns an error, then double check you've copied the token without any quotes and that you're prefixing it with "Bearer " if using Swagger.
+
+If you still get an error then you can inspect the token to determine what's wrong.
+
+* Open <https://jwt.io> in your browser
+* Paste the token into the "Encoded" section
+* The access token we get from Azure is a JSON Web Token (JWT). It has a header, body and signature. We want to look at the decoded body for a section like
+
+```json
+"roles": [
+  "WeatherApplicationRole"
+]
+```
+
+If that section is present, then double check your `client_id` and `scope` parameters are correct, and that the name of the role matches what you have in `WeatherForecast/Startup.cs`.
+If that section is missing, then open your Weather App Consumer app registration (the second one) in the Azure Portal. Make sure you've added WeatherApplicationRole as a permission and granted admin consent for it - there should be a green tick in the status column.
+
+</details>
+
+<br />
+
 ### 2.4: Write a script to send a request to the web API
 
 Instead of having to manually get a token and add it to the request, write a python script to do it for you. The script should:
