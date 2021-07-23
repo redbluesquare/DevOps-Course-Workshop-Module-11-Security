@@ -215,8 +215,6 @@ If that section is missing, then open your Weather App Consumer app registration
 
 </details>
 
-<br />
-
 ### 2.4: Write a script to send a request to the web API
 
 Instead of having to manually get a token and add it to the request, write a python script to do it for you. The script should:
