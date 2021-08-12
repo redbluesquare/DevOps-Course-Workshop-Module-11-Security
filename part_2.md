@@ -25,7 +25,9 @@ You don't need to worry too much about what the code is doing for now, however y
 
 The first step is to create an Azure AD Tenant. A tenant in this case is an instance of Azure Active Directory.
 
-Follow [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) to create a new Azure AD Tenant to use.
+* Navigate to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). You can also navigate between different services via the search bar at the top of the portal.
+* Select Manage Tenants at the top
+* Select Create, and complete the form to create a new tenant. Keep the default "tenant type".
 
 *Note* - Make sure you have switched to the new tenant afterwards. You can do that by:
 
@@ -121,8 +123,8 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 See [this guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-configuration#starting-from-an-existing-aspnet-core-31-application) for more details.
 
-**Add authentication to the `WeatherForecast` endpoint.**
-You can do this by using the `Authorize` attribute on the class:
+**Add authentication to the `WeatherForecast` endpoint**
+You can do this by using the `Authorize` attribute on the class (in `WeatherForecastController.cs`):
 
 ```csharp
 [Authorize(Policy = "ApplicationPolicy")]
@@ -130,6 +132,8 @@ You can do this by using the `Authorize` attribute on the class:
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 ```
+
+Again, an import is needed. If VSCode can't add it, you can manually copy this to the top of the file: `using Microsoft.AspNetCore.Authorization;` 
 
 The name of the policy (`"ApplicationPolicy"` in this case) can be whatever you want but it needs to match the name of the policy you define in the `ConfigureServices` method. Adding the `Authorize` header with that policy will ensure that only a request with a valid token which is for `WeatherApplicationRole` will be able to hit the endpoint.
 
@@ -162,11 +166,12 @@ The structure of the request in Postman will look like the following:
 
 In particular:
 
+* It is a POST request to a URL of the form `https://login.microsoftonline.com/your_tenant_id/oauth2/v2.0/token`
 * The tenant id should be from the tenant you created in part 1. You can find this on the overview page for either of the app registrations you've created.
-* The client id should be the client id for the app registration you created in step 2.1.
+* The client id should be for the consumer app, i.e. the app registration you created in step 2.1.
 * The client secret should be the one you created in step 2.1, to prove that it is the application making this request.
-* The scope should be the application ID URI from the first app registration you created in step 1.3 followed by "/.default". For example `api://40ae91b7-0c83-4b5c-90f3-40187e8f2cb6/.default`.
-  * You can find the application ID URI by going to the "Expose an API" section for your first app registration in the Azure portal.
+* The scope should be the application ID URI of the secured Weather Forecast API, i.e. the app registration you created in step 1.3, followed by "/.default". For example `api://40ae91b7-0c83-4b5c-90f3-40187e8f2cb6/.default`.
+  * You can find the application ID URI on the app registration's overview page, or going to the "Expose an API" section.
   * Note that if you are *NOT* using Postman, it needs to be URI encoded. For example `api%3A%2F%2F40ae91b7-0c83-4b5c-90f3-40187e8f2cb6%2F.default`
 
 Once you get a successful response copy the access token from it. You're going to use this in the request to your web API.
