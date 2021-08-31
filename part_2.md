@@ -71,6 +71,7 @@ This should be provided in the `appsettings.json` file. Update this file to incl
 You can find the client id and tenant id on the overview page for your app registration in the Azure portal. See [this guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-configuration#config-file) for more details.
 
 **Configure the app to use authentication.**
+
 These changes need to be made in `Startup.cs`. You need to update the `ConfigureService` method to include the following:
 
 ```csharp
@@ -124,6 +125,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 See [this guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-configuration#starting-from-an-existing-aspnet-core-31-application) for more details.
 
 **Add authentication to the `WeatherForecast` endpoint**
+
 You can do this by using the `Authorize` attribute on the class (in `WeatherForecastController.cs`):
 
 ```csharp
@@ -154,7 +156,7 @@ Create a new app registration called `WeatherAppConsumer` (feel free to name it 
 Next you'll need to grant API permission for the new application to access the first app registration you created.
 
 * Select **API permissions** => **Add a permission** => **My APIs** then click on your app and the role you created earlier (`WeatherApplicationRole`)
-* **Make sure you grant admin consent for the tenant on the API permissions page**. As you created the tenant you should have admin permissions to do so.
+* **Make sure you confirm the change by granting admin consent.** To do this, just click the tick icon above the table on the API permissions page. As you created the tenant you should have admin permissions to do so.
 
 ### 2.2: Get a token to access the web API
 
