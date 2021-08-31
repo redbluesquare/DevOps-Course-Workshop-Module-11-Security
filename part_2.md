@@ -124,7 +124,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 See [this guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-configuration#starting-from-an-existing-aspnet-core-31-application) for more details.
 
-**Add authentication to the `WeatherForecast` endpoint**
+**Add authentication to the `/WeatherForecast` endpoint**
 
 You can do this by using the `Authorize` attribute on the class (in `WeatherForecastController.cs`):
 
