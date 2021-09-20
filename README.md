@@ -6,7 +6,7 @@ During this workshop follow the instructions in during_workshop.md.
 
 ## Pre-requisites
 
-You need to have an azure account. You can create a free account [here](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+You need to have an azure account; you should have been provided with one in advance of this workshop.
 
 Also make sure you have installed the following:
 
