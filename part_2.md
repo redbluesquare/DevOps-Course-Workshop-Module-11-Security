@@ -5,7 +5,7 @@ If you haven't completed the prerequisites in the [README](./README.md) do so no
 ## Part 1 - Protected web API
 
 We want to create a web API which is protected by [Azure Active Directory authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/overview-authentication#:~:text=One%20of%20the%20main%20features,of%20a%20username%20and%20password.).
-That means it shouldn't be possible to access the api without a valid authentication token. We'll use Azure services to generate and verify the token. Specifically, we will be using the OAuth2 "client credentials" flow, useful for server-to-server interaction.
+That means it shouldn't be possible to access the api without a valid authentication token. We'll use Azure services to generate and verify the token. Specifically, we will be using the OAuth2 ["client credentials"](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) flow, useful for server-to-server interaction.
 
 ### 1.1: Set up the web API
 
