@@ -4,7 +4,7 @@ Before starting make sure you have addressed the prerequisites in the [README.md
 
 ## Part 1 Threat Modelling
 
-In the first part of today's workshop you will be conducting a security review of an organisation's IT systems. The details of this system can be found [here](./Scenarios/Alpha_Organisation/description.md). Threat modelling can be an open ended process, so your trainers will probably time box each section of the exercise.
+In the first part of today's workshop you will be conducting a security review of an organisation's IT systems. [The details of this system can be found here](./Scenarios/Alpha_Organisation/description.md). Threat modelling can be an open ended process, so your trainers will probably time box each section of the exercise.
 
 ### Identify Threats
 
