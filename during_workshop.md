@@ -52,7 +52,7 @@ The "Damn Vulnerable Web Application" will let you see some concrete examples of
 Run the following docker command
 
 ```bash
-    docker run --rm -it -p 80:80 vulnerables/web-dvwa
+    docker run --rm -it -p 5000:80 vulnerables/web-dvwa
 ```
 
 Visit `localhost` on your machine, click to `Create / Reset database` and authenticate with `Username: admin` and `Password: password`.
