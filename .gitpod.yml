@@ -12,4 +12,4 @@ ports:
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
   - command: cd WeatherForecast/ && dotnet run --urls http://0.0.0.0:5001
-  - command: gp preview $(gp url 5001)swagger/index.html
+  - command: gp await-port 5001 && gp preview $(gp url 5001)/swagger/index.html
