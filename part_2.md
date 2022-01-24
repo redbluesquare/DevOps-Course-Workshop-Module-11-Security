@@ -13,11 +13,15 @@ This repository contains code for a simple .NET Core web API.
 It exposes one GET endpoint, WeatherForecast, which will return a randomly generated weather forecast for the next five days.
 As you'll be building on this code, it's recommended that you [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the repository like you did for workshops 7 and 8.
 
-You don't need to worry too much about what the code is doing for now, however you should be able to build and run the app.
+You don't need to worry too much about what the code is doing for now, however you should be able to build and run the app. If you are running the app in GitPod, you should find these steps are run for you, and the relevant page has already opened.
+
+> If you are using GitPod and the page hasn't opened, follow the instructions below to run the app and visit the relevant page on the 5001 port with /swagger/index.html after the address.
 
 1. Run `dotnet build` from the terminal in the WeatherForecast folder.
 2. Run `dotnet run` from the terminal in the WeatherForecast folder.
-3. Go to <https://localhost:5001/swagger/index.html> in the browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page. Swagger UI is a useful tool to test API endpoints. To test this API click the "/WeatherForecast" row then "Try it out" then "Execute". You should then be able to see the response from the endpoint.
+3. Go to <https://localhost:5001/swagger/index.html> in the browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page.
+
+Swagger UI is a useful tool to test API endpoints. To test this API click the "/WeatherForecast" row then "Try it out" then "Execute". You should then be able to see the response from the endpoint.
 
 ![Swagger UI](WeatherForecast/img/SwaggerUI.PNG)
 

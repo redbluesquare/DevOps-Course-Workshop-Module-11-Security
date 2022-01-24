@@ -1,12 +1,15 @@
 image: gitpod/workspace-dotnet
-
+vscode:
+  extensions:
+    - "ms-dotnettools.csharp"
 # List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/43_config_ports/
 ports:
   - port: 5000
     onOpen: ignore
   - port: 5001
-    onOpen: open-preview
+    onOpen: ignore
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
   - command: cd WeatherForecast/ && dotnet run --urls http://0.0.0.0:5001
+  - command: gp preview $(gp url 5001)swagger/index.html
