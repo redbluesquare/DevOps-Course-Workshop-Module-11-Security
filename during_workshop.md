@@ -2,7 +2,11 @@
 
 Before starting make sure you have addressed the prerequisites in the [README.md](README.md)
 
-## Part 1 Threat Modelling
+## Part 1 OAuth
+
+This part of the workshop is in covered in [Part 1](./part_1.md).
+
+## Part 2 Threat Modelling
 
 In the first part of today's workshop you will be conducting a security review of an organisation's IT systems. [The details of this system can be found here](./Scenarios/Alpha_Organisation/description.md). Threat modelling can be an open ended process, so your trainers will probably time box each section of the exercise.
 
@@ -38,10 +42,6 @@ Suggested prioritisation matrix:
 ### Mitigating Risks
 
 Finally, work through the prioritised list of threats and suggest ways to mitigate those risks. These don't have to be technical solutions; it can be cheaper **and** more effective to put a non-technical control in place instead.
-
-## Part 2 Auth
-
-This part of the workshop is in covered in [Part 2](./part_2.md).
 
 ## Part 3 Vulnerable Docker Box
 
