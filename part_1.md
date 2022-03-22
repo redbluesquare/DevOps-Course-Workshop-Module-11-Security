@@ -1,4 +1,4 @@
-# Part 2
+# Implementing OAuth
 
 If you haven't completed the prerequisites in the [README](./README.md) do so now.
 
