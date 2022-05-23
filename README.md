@@ -13,6 +13,6 @@ Also make sure you have installed the following:
 - [Visual Studio Code](https://code.visualstudio.com/download)
   - Make sure you have the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 - [Git](https://git-scm.com/)
-- [.NET 6](https://dotnet.microsoft.com/download)
+- [Docker](https://www.docker.com/get-started/) **OR** [.NET 6](https://dotnet.microsoft.com/download)
 
 > While part of this workshop involves C#, knowledge of C# is not a prerequisite of this workshop.

@@ -13,13 +13,15 @@ This repository contains code for a simple .NET Core web API.
 It exposes one GET endpoint, WeatherForecast, which will return a randomly generated weather forecast for the next five days.
 As you'll be building on this code, it's recommended that you [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the repository like you did for workshops 7 and 8.
 
-You don't need to worry too much about what the code is doing for now, however you should be able to build and run the app. If you are running the app in GitPod, you should find these steps are run for you, and the relevant page has already opened.
+You don't need to worry too much about what the code is doing for now. However, you should be able to build and run the app.
 
-> If you are using GitPod and the page hasn't opened, follow the instructions below to run the app and visit the relevant page on the 5001 port with /swagger/index.html after the address.
+> If you are running the app in GitPod, you should find these steps are automatically run for you, and the relevant page has already opened. If not, follow the instructions below to run the app and visit the relevant page on the 5000 port with `/swagger/index.html` after the hostname.
 
-1. Run `dotnet build` from the terminal in the WeatherForecast folder.
-2. Run `dotnet run` from the terminal in the WeatherForecast folder.
-3. Go to <http://localhost:5001/swagger/index.html> in the browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page.
+With Docker, run `docker compose up --build` from a terminal in the WeatherForecast folder. The `--build` option will be important to pick up code changes later.
+
+If you'd like to run the app directly instead, run `dotnet build` and then `dotnet run` from a terminal in the WeatherForecast folder.
+
+Either way, you should now be able to visit <http://localhost:5000/swagger/index.html> in a browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page.
 
 Swagger UI is a useful tool to test API endpoints. To test this API click the "/WeatherForecast" row then "Try it out" then "Execute". You should then be able to see the response from the endpoint.
 
