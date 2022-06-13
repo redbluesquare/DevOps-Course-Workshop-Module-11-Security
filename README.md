@@ -1,4 +1,4 @@
-# Module 10 Workshop
+# Module 11 Workshop
 
 This repository is for learners on Corndel's DevOps apprenticeship.
 
