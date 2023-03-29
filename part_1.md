@@ -17,7 +17,7 @@ You don't need to worry too much about what the code is doing for now. However, 
 
 > If you are running the app in GitPod, you should find these steps are automatically run for you, and the relevant page has already opened. If not, follow the instructions below to run the app and visit the relevant page on the 5000 port with `/swagger/index.html` after the hostname.
 
-With Docker, run `docker compose up --build` from a terminal in the WeatherForecast folder. The `--build` option will be important to pick up code changes later.
+With Docker, run `docker compose up --build` from a terminal in the project root folder. The `--build` option will be important to pick up code changes later.
 
 If you'd like to run the app directly instead, run `dotnet build` and then `dotnet run` from a terminal in the WeatherForecast folder.
 
