@@ -17,11 +17,12 @@ You don't need to worry too much about what the code is doing for now. However, 
 
 > If you are running the app in GitPod, you should find these steps are automatically run for you, and the relevant page has already opened. If not, follow the instructions below to run the app and visit the relevant page on the 5000 port with `/swagger/index.html` after the hostname.
 
-With Docker, run `docker compose up --build` from a terminal in the project root folder. The `--build` option will be important to pick up code changes later.
+> To launch this project within Docker, either select "Reopen in Container" to the prompt that appears or type `Ctrl + Shift + P => DevContainers: Reopen in Container`:
+![DevContainer Prompt](./Images/OpenInDocker.PNG)
 
-If you'd like to run the app directly instead, run `dotnet build` and then `dotnet run` from a terminal in the WeatherForecast folder.
+To run the application, run `dotnet build` and then `dotnet run` from a terminal in the `WeatherForecast` folder.
 
-Either way, you should now be able to visit <http://localhost:5000/swagger/index.html> in a browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page.
+You should now be able to visit <http://localhost:5000/swagger/index.html> in a browser. This loads a [Swagger UI](https://swagger.io/tools/swagger-ui/) page.
 
 Swagger UI is a useful tool to test API endpoints. To test this API click the "/WeatherForecast" row then "Try it out" then "Execute". You should then be able to see the response from the endpoint.
 
@@ -100,7 +101,7 @@ public void ConfigureServices(IServiceCollection services)
 
 You will also need to import the relevant libraries. VSCode can fix this for you automatically if you click on the missing import (highlighted in red) and then press Ctrl/Cmd + FullStop.
 
-If you are having issues with Omnisharp's autoimport, you can manually add the imports to the top of the file:
+If you are having issues with VSCode's autoimport, you can manually add the imports to the top of the file:
 
 ```csharp
 using System.IdentityModel.Tokens.Jwt;

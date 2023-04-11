@@ -1,4 +1,4 @@
-image: gitpod/workspace-dotnet
+image: mcr.microsoft.com/dotnet/sdk:6.0
 vscode:
   extensions:
     - "muhammad-sammy.csharp"
@@ -9,5 +9,5 @@ ports:
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
-  - command: cd WeatherForecast/ && dotnet run --urls http://0.0.0.0:5000
+  - command: cd WeatherForecast/ && dotnet run
   - command: gp await-port 5000 && gp preview $(gp url 5000)/swagger/index.html
