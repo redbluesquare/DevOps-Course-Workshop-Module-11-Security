@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-dotnet:latest
 vscode:
   extensions:
     - "muhammad-sammy.csharp"
