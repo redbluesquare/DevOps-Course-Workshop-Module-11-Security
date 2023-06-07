@@ -1,4 +1,6 @@
-image: mcr.microsoft.com/dotnet/sdk:7.0
+# This is scanned in the tutor's repo to check that the necessary dependencies are still present
+# If changing, please ensure to also update that repository
+image: gitpod/workspace-dotnet:latest
 vscode:
   extensions:
     - "muhammad-sammy.csharp"
