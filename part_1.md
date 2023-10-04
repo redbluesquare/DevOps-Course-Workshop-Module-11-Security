@@ -4,7 +4,7 @@ If you haven't completed the prerequisites in the [README](./README.md) do so no
 
 ## Part 1 - Protected web API
 
-We want to create a web API which is protected by [Azure Active Directory authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/overview-authentication#:~:text=One%20of%20the%20main%20features,of%20a%20username%20and%20password.).
+We want to create a web API which is protected by [Microsoft Entra authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/overview-authentication#:~:text=One%20of%20the%20main%20features,of%20a%20username%20and%20password.).
 That means it shouldn't be possible to access the api without a valid authentication token. We'll use Azure services to generate and verify the token. Specifically, we will be using the OAuth2 ["client credentials"](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) flow, useful for server-to-server interaction.
 
 ### 1.1: Set up the web API
@@ -28,11 +28,11 @@ Swagger UI is a useful tool to test API endpoints. To test this API click the "/
 
 ![Swagger UI](WeatherForecast/img/SwaggerUI.PNG)
 
-### 1.2: Create Azure AD Tenant
+### 1.2: Create a Microsfot Entra Tenant
 
-The first step is to create an Azure AD Tenant. A tenant in this case is an instance of Azure Active Directory.
+The first step is to create an Microsoft Entra Tenant.
 
-* Navigate to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). You can also navigate between different services via the search bar at the top of the portal.
+* Navigate to [Microsoft Entra ID](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). You can also navigate between different services via the search bar at the top of the portal.
 * Select Manage Tenants at the top
 * Select Create, and complete the form to create a new tenant. Keep the default "tenant type".
 
@@ -60,7 +60,7 @@ Here are the steps for setting up the web API application in Azure:
 
 Now we need to add some code to our API so that it will only allow requests with the correct authentication.
 
-**Add the Azure AD config from the app registration to the app.**
+**Add the Microsoft Entra config from the app registration to the app.**
 
 This should be provided in the `appsettings.json` file. Update this file to include the following information:
 
