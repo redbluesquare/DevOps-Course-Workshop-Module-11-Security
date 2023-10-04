@@ -28,7 +28,7 @@ Swagger UI is a useful tool to test API endpoints. To test this API click the "/
 
 ![Swagger UI](WeatherForecast/img/SwaggerUI.PNG)
 
-### 1.2: Create a Microsfot Entra Tenant
+### 1.2: Create a Microsoft Entra Tenant
 
 The first step is to create an Microsoft Entra Tenant.
 
@@ -51,8 +51,8 @@ In particular we want to configure it so that the data provided by the API can b
 Here are the steps for setting up the web API application in Azure:
 
 1. Create a new app registration (from [this page on Azure](https://go.microsoft.com/fwlink/?linkid=2083908)).
-    * Use `WeatherApp` as the app name and leave **Supported account types** on the default setting of **Accounts in this organizational directory only**.
-2. After registering click **Expose an api** and on **Application ID URI**, click on **Set**. Keep the suggested value, for example `api://<web api client id>`
+     * Use `WeatherApp` as the app name and leave **Supported account types** on the default setting of **Accounts in this organizational directory only**.
+2. After registering click **Expose an api** and on **Application ID URI**, click on **Add**. Keep the suggested value, for example `api://<web api client id>`
 3. Create an app role as follows:
 ![Weather App Role](WeatherForecast/img/WeatherAppRole.PNG)
 
