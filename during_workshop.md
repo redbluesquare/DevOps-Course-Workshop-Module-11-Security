@@ -45,17 +45,23 @@ Finally, work through the prioritised list of threats and suggest ways to mitiga
 
 ## Part 3 Vulnerable Docker Box
 
-The "Damn Vulnerable Web Application" will let you see some concrete examples of exploits. It is a deliberately vulnerable web application to let you safely and _legally_ explore breaking into a system. To make it easy to run locally there is a Docker image provided - quick start instructions below. It is largely self-explanatory but for more detailed instructions go to [README.md](https://github.com/opsxcq/docker-vulnerable-dvwa/blob/master/README.md).
+The [Damn Vulnerable Web Application](https://github.com/digininja/DVWA) will let you see some concrete examples of exploits. It is a deliberately vulnerable web application to let you safely and _legally_ explore breaking into a system.
 
 ### Quick Start Instructions
 
-Run the following docker command
+You can start the application by either: 
+* Running `docker compose up` from the `dvwa` folder 
+or 
+* Cloning [the GitHub repository](https://github.com/digininja/DVWA) and following the instructions for running the application with Docker [here](https://github.com/digininja/DVWA#getting-started)
 
-```bash
-    docker run --rm -it -p 5000:80 vulnerables/web-dvwa
-```
+Once running:
+1. Visit `localhost:4280` in your browser
+1. Enter the username and password (`Username: admin` and `Password: password`)
+1. Click to `Create / Reset database` at the bottom of the homepage
+1. Reauthenticate with the same username and password
+1. Select the DVWA Security tab and change the security level from `impossible` to `low` and you're good to go!
 
-Visit `localhost` on your machine, click to `Create / Reset database` and authenticate with `Username: admin` and `Password: password`.
+On each vulnerability page there are buttons on the bottom right hand side that provide hints and display the code running on the server.
 
 ## Part 4 XSS Training (Optional)
 
