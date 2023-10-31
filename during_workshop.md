@@ -55,7 +55,7 @@ or
 * Cloning [the GitHub repository](https://github.com/digininja/DVWA) and following the instructions for running the application with Docker [here](https://github.com/digininja/DVWA#getting-started)
 
 Once running:
-1. Visit `localhost:4280` in your browser
+1. Visit `localhost:4280` in a browser (if you see an error message you may need to wait 30 seconds and then refresh the page)
 1. Enter the username and password (`Username: admin` and `Password: password`)
 1. Click to `Create / Reset database` at the bottom of the homepage
 1. Reauthenticate with the same username and password
