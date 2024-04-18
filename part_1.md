@@ -28,35 +28,21 @@ Swagger UI is a useful tool to test API endpoints. To test this API click the "/
 
 ![Swagger UI](WeatherForecast/img/SwaggerUI.PNG)
 
-### 1.2: Create a Microsoft Entra Tenant
+### 1.2: Create an app registration for a protected web API
 
-The first step is to create an Microsoft Entra Tenant.
-
-* Navigate to [Microsoft Entra ID](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). You can also navigate between different services via the search bar at the top of the portal.
-* Select Manage Tenants at the top
-* Select Create, and complete the form to create a new tenant. Keep the default "tenant type".
-
-*Note* - Make sure you have switched to the new tenant afterwards. You can do that by:
-
-* Clicking your name in the top right corner
-* 'Switch directory'
-* Selecting your new tenant's directory
-
-### 1.3: Create an app registration for a protected web API
-
-The next step is to create an app registration for the web API we're going to use. We need to do this so that we can verify the authentication token sent to our API is valid. To do this we register our application with our tenant as a protected web API.
+The next step is to create an app registration for the web API we're going to use. We need to do this so that we can verify the authentication token sent to our API is valid. To do this we register our application within Azure as a protected web API.
 
 In particular we want to configure it so that the data provided by the API can be consumed by another app securely using tokens, without needing a user to log in first.
 
 Here are the steps for setting up the web API application in Azure:
 
 1. Create a new app registration (from [this page on Azure](https://go.microsoft.com/fwlink/?linkid=2083908)).
-     * Use `WeatherApp` as the app name and leave **Supported account types** on the default setting of **Accounts in this organizational directory only**.
+     * Use `Weather App - <Your Initials>` as the app name and leave **Supported account types** on the default setting of **Accounts in this organizational directory only**.
 2. After registering click **Expose an api** and on **Application ID URI**, click on **Add**. Keep the suggested value, for example `api://<web api client id>`
 3. Create an app role as follows:
 ![Weather App Role](WeatherForecast/img/WeatherAppRole.PNG)
 
-### 1.4: Add authentication to a web API
+### 1.3: Add authentication to a web API
 
 Now we need to add some code to our API so that it will only allow requests with the correct authentication.
 
@@ -98,6 +84,8 @@ public void ConfigureServices(IServiceCollection services)
     ...
 }
 ```
+
+> Note that the role name must **precisely** match the role that you created on your App Registration.
 
 You will also need to import the relevant libraries. VSCode can fix this for you automatically if you click on the missing import (highlighted in red) and then press Ctrl/Cmd + FullStop.
 
@@ -156,14 +144,15 @@ You'll see in the next part how we can add a valid authentication token to the r
 
 You are now going to register a second application - a consumer of the protected API - that will access it by generating an access token. You will play the part of the second application by making HTTP requests yourself. To register it, create a second "app registration" in the Azure portal:
 
-Create a new app registration called `WeatherAppConsumer` (feel free to name it something else if you prefer!).
+Create a new app registration called `Weather App Consumer - <Your Initials>` (feel free to name it something else if you prefer!).
 
 * Once created, add a new **client secret** from the **Certificates & secrets**. Make a note of the secret's value - you will not be able to access this through the portal later.
 
 Next you'll need to grant API permission for the new application to access the first app registration you created.
 
 * Select **API permissions** => **Add a permission** => **My APIs** then click on your app and the role you created earlier (`WeatherApplicationRole`)
-* **Make sure you confirm the change by granting admin consent.** To do this, just click the tick icon above the table on the API permissions page. As you created the tenant you should have admin permissions to do so.
+* **To enable that role we will need to grant admin consent: contact your trainer so that they can do this now.** To do this, we will just click the tick icon above the table on the API permissions page, but you will not have permission.
+  * While you're waiting for a response,  continue to create the request in Part 2.2. That will succeed once the admin consent has been granted.
 
 ### 2.2: Get a token to access the web API
 
