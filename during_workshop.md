@@ -14,7 +14,11 @@ In the second part of today's workshop you will be conducting a security review 
 
 The first thing we need to do is to try to identify the possible threats the system could face. This is not an easy task: there are lots of possible attack vectors and many different sorts of threats.
 
-Use the **STRIDE** topics as guidance and work your way through the systems methodically, perhaps system by system. At the end of this process you should have a list of potential threats grouped by topic and system. (You will probably find it helpful to record these in a spreadsheet - feel free to use your own, or [this example](https://docs.google.com/spreadsheets/d/1BWj_jrJ2HiHTRaoW6_pPVgN1W0zAnvOM0v7WUYG9lw8/edit?usp=sharing).)
+Use the **STRIDE** topics as guidance and work your way through the systems methodically, perhaps system by system. At the end of this process you should have a list of potential threats grouped by topic and system. (You will probably find it helpful to record these in a spreadsheet of some sort. Feel free to structure it your own way, or use something like:
+
+| System        | Risk Description | Risk Category (STRIDE) | Risk Likelihood | Impact Rating | Mitigation? |
+| ------------- | ---------------- | ---------------------- | --------------- | ------------- | ----------- |
+| Apollo        | ...              | ...                    | Low             | Low           | ...         |
 
 #### STRIDE
 
