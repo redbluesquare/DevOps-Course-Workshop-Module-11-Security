@@ -158,9 +158,9 @@ Next you'll need to grant API permission for the new application to access the f
 
 You should now be able to request a token to access the API. See [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret) for what the request should look like.
 
-The structure of the request in Postman will look like the following:
+The structure of the request in Thunder Client will look like the following:
 
-![Token Request](WeatherForecast/img/TokenRequest.PNG)
+![Token Request](WeatherForecast/img/ThunderClientTokenRequest.png)
 
 In particular:
 
@@ -170,14 +170,14 @@ In particular:
 * The client secret should be the one you created in step 2.1, to prove that it is the application making this request.
 * The scope should be the application ID URI of the secured Weather Forecast API, i.e. the app registration you created in step 1.3, followed by "/.default". For example `api://40ae91b7-0c83-4b5c-90f3-40187e8f2cb6/.default`.
   * You can find the application ID URI on the app registration's overview page, or going to the "Expose an API" section.
-  * Note that if you are *NOT* using Postman, it needs to be URI encoded. For example `api%3A%2F%2F40ae91b7-0c83-4b5c-90f3-40187e8f2cb6%2F.default`
+  * Note that if you are *NOT* using Thunder Client, it needs to be URI encoded. For example `api%3A%2F%2F40ae91b7-0c83-4b5c-90f3-40187e8f2cb6%2F.default`
 * The client id, secret, scope and grant type should go in the Body of the request not as URL "Params"
 
 Once you get a successful response copy the access token from it. You're going to use this in the request to your web API.
 
 ### 2.3: Send a request to the web API
 
-Now you just need to add the token from the previous step to your request to the API. This can either be done via Swagger or Postman:
+Now you just need to add the token from the previous step to your request to the API. This can either be done via Swagger or Thunder Client:
 
 ### Using Swagger
 
@@ -189,11 +189,11 @@ Bearer eyJ0eXAiOiJKV1QiLCJ...
 
 After you've entered the token click "Authorize". This should close the popup and the "Authorize" button should now have a closed padlock icon on it. When you now send a request through Swagger it should include the token and the request should be accepted.
 
-### Using Postman
+### Using Thunder Client
 
-Create a GET request with an authorisation type of Bearer Token:
+Create a GET request with an authorisation type of Bearer:
 
-![Postman API Request](WeatherForecast/img/PostmanApiRequest.PNG)
+![Thunder Client API Request](WeatherForecast/img/ThunderClientAPIRequest.png)
 
 ### Troubleshooting
 
