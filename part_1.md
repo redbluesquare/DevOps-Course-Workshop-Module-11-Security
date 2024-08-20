@@ -167,7 +167,7 @@ In particular:
 * It is a POST request to a URL of the form `https://login.microsoftonline.com/your_tenant_id/oauth2/v2.0/token`
 * The tenant id should be from the tenant you created in part 1. You can find this on the overview page for either of the app registrations you've created.
 * The client id should be for the consumer app, i.e. the app registration you created in step 2.1.
-* The client secret should be the one you created in step 2.1, to prove that it is the application making this request.
+* The client secret value should be the one you created in step 2.1, to prove that it is the application making this request.
 * The scope should be the application ID URI of the secured Weather Forecast API, i.e. the app registration you created in step 1.3, followed by "/.default". For example `api://40ae91b7-0c83-4b5c-90f3-40187e8f2cb6/.default`.
   * You can find the application ID URI on the app registration's overview page, or going to the "Expose an API" section.
   * Note that if you are *NOT* using Thunder Client, it needs to be URI encoded. For example `api%3A%2F%2F40ae91b7-0c83-4b5c-90f3-40187e8f2cb6%2F.default`
