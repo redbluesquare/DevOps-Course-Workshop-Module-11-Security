@@ -38,7 +38,7 @@ Here are the steps for setting up the web API application in Azure:
 
 1. Create a new app registration (from [this page on Azure](https://go.microsoft.com/fwlink/?linkid=2083908)).
      * Use `Weather App - <Your Initials>` as the app name and leave **Supported account types** on the default setting of **Accounts in this organizational directory only**.
-2. After registering click **Expose an api** and on **Application ID URI**, click on **Add**. Keep the suggested value, for example `api://<web api client id>`
+2. After registering, expand **Manage** from the left menu, then click **Expose an api** and on **Application ID URI**, click on **Add**. Keep the suggested value, for example `api://<web api client id>`
 3. Create an app role as follows:
 ![Weather App Role](WeatherForecast/img/WeatherAppRole.PNG)
 
